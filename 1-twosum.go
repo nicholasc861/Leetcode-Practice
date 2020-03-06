@@ -1,5 +1,3 @@
-package main
-
 func twoSum(nums []int, target int) []int {
     numbers := make(map[int]int)
     
