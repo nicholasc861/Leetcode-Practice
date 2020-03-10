@@ -11,23 +11,18 @@ func isPalindrome(s string) bool {
     s = reg.ReplaceAllString(s, "")
     
     if len(strings.TrimSpace(s)) != 0 {
-	    
         s = strings.ToLower(s)
         characters := strings.Split(s, "")
-        lengthOfString := len(characters)
+        end := len(characters)-1
+        begin := 0
         
-        if (lengthOfString % 2) == 0 {
-            lengthOfString--
-        }
-        
-        for i := 0; i <= lengthOfString/2;{
-            for j := len(characters)-1; j >= lengthOfString/2; j-- {
-                if characters[j] != characters[i] {
-                    return false
-			    }
-			    i++
+        for begin < end {
+            if characters[begin] != characters[end] {
+                return false
             }
-        }  
+            begin++
+            end--
+        }
     }
     return true
 }
